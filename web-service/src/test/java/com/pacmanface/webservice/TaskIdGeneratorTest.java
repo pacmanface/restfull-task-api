@@ -13,7 +13,7 @@ public class TaskIdGeneratorTest {
     static int threadsOnRuns = (int) threads * runs;
 
     @Test
-    public void generateUniqueIds() {
+    public void doesGeneratorGenerateUniqueIds() {
         GeneratorRunnable runnable = new GeneratorRunnable();
         for (int i = 0; i < threads; i++) {
             new Thread(runnable).start();

@@ -16,7 +16,7 @@ public class TaskConfigTest {
     TaskStorage storage;
 
     @Test
-    public void inMemoryStorageInitializationTest() {
+    public void doesTaskConfigFillStorageCorrect() {
         Assert.assertFalse(storage.getTaskStorage().isEmpty());
         Assert.assertTrue(storage.getTaskStorage().size() == 20);
     }

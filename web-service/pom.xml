@@ -12,7 +12,7 @@
 	<artifactId>web-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>web-service</name>
-	<description>HTTP REST API Spring Boot test</description>
+	<description>restfull-task-api</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
