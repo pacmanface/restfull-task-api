@@ -27,6 +27,14 @@ public class DefaultRestControllerTest {
     }
 
     @Test
+    public void getAllTasksWithPagination_success() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/tasks?page=1&size=10")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+    }
+
+    @Test
     public void getValidTask_success() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/tasks/9")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -49,18 +57,7 @@ public class DefaultRestControllerTest {
                         .content("{\"name\":\"Posted_Bob\",\"description\":\"Posted_blablabla\"}")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isCreated());
-
-        getAllTasks_success();
     }
 
-    @Test
-    public void patchValidData_success() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.patch("/api/tasks/15")
-                .accept(MediaType.APPLICATION_JSON)
-                .content("{\"name\":\"Patched_Bob\",\"description\":\"Patched_blablabla\"}")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andDo(MockMvcResultHandlers.print());
-    }
 
 }
